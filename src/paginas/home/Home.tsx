@@ -1,6 +1,8 @@
 import React from 'react';
 import homeLogo from '../../assets/home.png'
 import './Home.css';
+import ListaProdutos from '../../components/produtos/listaProdutos/ListaProdutos';
+import ModalProduto from '../../components/produtos/modalProduto/ModalProduto';
 
 
 function Home() {
@@ -13,7 +15,7 @@ function Home() {
               <p className='text-xl'>Farmácia</p>
   
               <div className="flex justify-around gap-4">
-              
+              <ModalProduto />
                 <button className='rounded bg-white text-blue-800 py-2 px-4'>Ver produtos</button>
               </div>
             </div>
@@ -24,7 +26,7 @@ function Home() {
             </div>
           </div>
         </div>
-      
+        <ListaProdutos />
       </>
     );
 }

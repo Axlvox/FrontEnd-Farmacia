@@ -5,9 +5,13 @@ import Navbar from './components/navbar/NavBar';
 import Footer from './components/footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './paginas/home/Home';
-import ListaCategorias from './components/categorias/listaCategorias/ListaCategorias'; // Alterando o import para refletir a mudança de nome do componente
-import FormularioCategoria from './components/categorias/formularioCategoria/FormularioCategoria'; // Alterando o import para refletir a mudança de nome do componente
-import DeletarCategoria from './components/categorias/deletarCategoria/DeletarCategoria'; // Alterando o import para refletir a mudança de nome do componente
+import ListaCategorias from './components/categorias/listaCategorias/ListaCategorias';
+import FormularioCategoria from './components/categorias/formularioCategoria/FormularioCategoria';
+import DeletarCategoria from './components/categorias/deletarCategoria/DeletarCategoria';
+import ListaProdutos from './components/produtos/listaProdutos/ListaProdutos';
+import FormularioProduto from './components/produtos/formularioProduto/FormularioProduto';
+import DeletarProduto from './components/produtos/deletarProduto/DeletarProduto';
+
 
 function App() {
   return (
@@ -17,10 +21,14 @@ function App() {
         <div className='min-h-[80vh]'>
           <Routes>
             <Route path="/home" element={<Home />} />
-            <Route path="/categorias" element={<ListaCategorias />} /> {/* Alterando de ListaTemas para ListaCategorias */}
-            <Route path="/cadastroCategoria" element={<FormularioCategoria />} /> {/* Alterando de FormularioTema para FormularioCategoria */}
-            <Route path="/editarCategoria/:id" element={<FormularioCategoria />} /> {/* Alterando de editarTema para editarCategoria */}
-            <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} /> {/* Alterando de deletarTema para deletarCategoria */}
+            <Route path="/categorias" element={<ListaCategorias />} />
+            <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
+            <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
+            <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
+            <Route path="/produtos" element={<ListaProdutos />} />
+            <Route path="/cadastroProduto" element={<FormularioProduto />} />
+              <Route path="/editarProduto/:id" element={<FormularioProduto />} />
+              <Route path="/deletarProduto/:id" element={<DeletarProduto />} />
           </Routes>
         </div>
         <Footer />

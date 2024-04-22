@@ -9,15 +9,14 @@ function Navbar() {
 
   return (
     <>
-     <div className='w-full bg-indigo-900 text-white flex justify-center py-4'>
-          <div className="container flex justify-between text-lg">
+        <div className='w-full bg-yellow-400 text-black flex justify-center py-4'>
+        <div className="container flex justify-between text-lg ml-4 mr-4">
           <Link to='/home' className='text-2xl font-bold uppercase'>Farmácia</Link>
 
             <div className='flex gap-4'>
-            <div className='hover:underline'>Produtos</div>
+            <Link to='/produtos' className='hover:underline'>Produtos</Link>
             <Link to='/categorias' className='hover:underline'>Categorias</Link>
             <Link to='/cadastroCategoria' className='hover:underline'>Cadastrar Categoria</Link>
-              <div className='hover:underline'>Perfil</div>
               <Link to='/home/' className='hover:underline'>Sair</Link>
              
             </div>
