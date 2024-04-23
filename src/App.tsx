@@ -10,6 +10,7 @@ import DeletarCategoria from './components/categorias/deletarCategoria/DeletarCa
 import ListaProdutos from './components/produtos/listaProdutos/ListaProdutos';
 import FormularioProduto from './components/produtos/formularioProduto/FormularioProduto';
 import DeletarProduto from './components/produtos/deletarProduto/DeletarProduto';
+import { ToastContainer } from 'react-toastify';
 
 import remediosMock from './components/mocks/remediosMock';
 import categoriasMock from './components/mocks/categoriasMock';
@@ -18,6 +19,7 @@ import categoriasMock from './components/mocks/categoriasMock';
 function App() {
   return (
     <>
+      <ToastContainer />
       <BrowserRouter>
         <Navbar />
         <div className='min-h-[80vh]'>

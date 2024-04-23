@@ -4,6 +4,7 @@ import Produto from '../../../models/Produto';
 import Categoria from '../../../models/Categoria';
 import { buscar, atualizar, cadastrar } from '../../../services/Service';
 import categoriasMock from '../../mocks/categoriasMock';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 function FormularioProduto() {
   let navigate = useNavigate();
@@ -86,7 +87,7 @@ function FormularioProduto() {
         alert('Produto cadastrado com sucesso');
         retornar();
       } catch (error: any) {
-        alert('Erro ao cadastrar o Produto');
+        toastAlerta('Erro ao cadastrar a Postagem', 'erro');
       }
     }
   }

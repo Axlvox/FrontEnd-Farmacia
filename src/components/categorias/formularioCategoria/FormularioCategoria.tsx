@@ -2,6 +2,7 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Categoria from '../../../models/Categoria';
 import { atualizar, buscar, cadastrar } from '../../../services/Service';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 function FormularioCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
@@ -38,7 +39,7 @@ function FormularioCategoria() {
             retornar()
     
         } catch (error: any) {
-            alert('Erro ao atualizar a Categoria')
+                toastAlerta('Erro ao cadastrado o Tema', 'erro')
         }
     }
     
