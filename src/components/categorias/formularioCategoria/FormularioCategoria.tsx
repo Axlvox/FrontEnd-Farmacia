@@ -41,7 +41,7 @@ function FormularioCategoria() {
             retornar()
     
         } catch (error: any) {
-          //alert('Erro ao atualizaro')
+          //alert('Erro ao atualizar')
           toastAlerta('Não é possível editar no momento', 'erro')
         }
     }

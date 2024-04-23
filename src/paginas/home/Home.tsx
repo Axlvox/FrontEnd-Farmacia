@@ -6,6 +6,7 @@ import ModalProduto from '../../components/produtos/modalProduto/ModalProduto';
 import remediosMock from '../../components/mocks/remediosMock';
 <img src='https://i.imgur.com/J4zdmqS.png' alt="" className='w-full h-auto' />
 
+
 function Home() {
     return (
         <>

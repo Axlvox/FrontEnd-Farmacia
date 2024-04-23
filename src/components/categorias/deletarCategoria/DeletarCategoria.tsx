@@ -12,7 +12,7 @@ function DeletarCategoria() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const categoriaData = await buscar(`/categorias/${id}`, {}); // Remova setCategoria como segundo parâmetro
+                const categoriaData = await buscar(`/categorias/${id}`, {});
                 setCategoria(categoriaData);
             } catch (error) {
                 console.error('Erro ao buscar categoria:', error);

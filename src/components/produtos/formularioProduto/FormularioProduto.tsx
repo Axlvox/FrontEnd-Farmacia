@@ -1,10 +1,11 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Produto from '../../../models/Produto';
 import Categoria from '../../../models/Categoria';
 import { buscar, atualizar, cadastrar } from '../../../services/Service';
 import categoriasMock from '../../mocks/categoriasMock';
-import { toastAlerta } from '../../../utils/toastAlerta';
+import { toast } from 'react-toastify';
+
 
 
 function FormularioProduto() {
@@ -82,16 +83,21 @@ function FormularioProduto() {
     } else {
       try {
         await cadastrar(`/produtos`, produto, {
-          headers: {
-          },
+          headers: {}
         });
-        alert('Produto cadastrado com sucesso');
+        toast.success('Produto cadastrado com sucesso');
         retornar();
       } catch (error: any) {
-        toastAlerta('Não é possível cadastrar no momento', 'erro')
+        const mensagem = (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <span>Não é possível cadastrar no momento</span>
+          <img src="https://i.imgur.com/J4zdmqS.png" alt="Erro" style={{ width: '96px', height: '96px', marginTop: '8px' }} />
+        </div>
+        );
+        toast.error(mensagem);
       }
-    }
   }
+}
   
 
   return (
