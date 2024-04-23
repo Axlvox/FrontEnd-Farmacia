@@ -12,6 +12,9 @@ import ListaProdutos from './components/produtos/listaProdutos/ListaProdutos';
 import FormularioProduto from './components/produtos/formularioProduto/FormularioProduto';
 import DeletarProduto from './components/produtos/deletarProduto/DeletarProduto';
 
+import remediosMock from './components/mocks/remediosMock';
+import categoriasMock from './components/mocks/categoriasMock';
+
 
 function App() {
   return (
@@ -20,12 +23,13 @@ function App() {
         <Navbar />
         <div className='min-h-[80vh]'>
           <Routes>
+          <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/categorias" element={<ListaCategorias />} />
+            <Route path="/categorias" element={<ListaCategorias categorias={categoriasMock} />} />
             <Route path="/cadastroCategoria" element={<FormularioCategoria />} />
             <Route path="/editarCategoria/:id" element={<FormularioCategoria />} />
             <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
-            <Route path="/produtos" element={<ListaProdutos />} />
+            <Route path="/produtos" element={<ListaProdutos produtos={remediosMock} />} />
             <Route path="/cadastroProduto" element={<FormularioProduto />} />
               <Route path="/editarProduto/:id" element={<FormularioProduto />} />
               <Route path="/deletarProduto/:id" element={<DeletarProduto />} />

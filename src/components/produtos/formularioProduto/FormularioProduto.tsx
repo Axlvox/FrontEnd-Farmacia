@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Produto from '../../../models/Produto';
 import Categoria from '../../../models/Categoria';
 import { buscar, atualizar, cadastrar } from '../../../services/Service';
+import categoriasMock from '../../mocks/categoriasMock';
 
 function FormularioProduto() {
   let navigate = useNavigate();
@@ -36,6 +37,7 @@ function FormularioProduto() {
     buscarCategorias();
     if (id !== undefined) {
       buscarProdutoPorId(id);
+      console.log(categoria);
     }
   }, [id]);
 
@@ -135,12 +137,12 @@ function FormularioProduto() {
           <p>Categoria do produto</p>
           <select name="categoria" id="categoria" className='border p-2 border-slate-800 rounded' onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}>
             <option value="" selected disabled>Selecione uma categoria</option>
-            {categorias.map((categoria) => (
-              <option key={categoria.id} value={categoria.id}>{categoria.descricao}</option>
+            {categoriasMock.map((categoria) => (
+              <option key={categoria.descricao} value={categoria.id}>{categoria.nome}</option>
             ))}
           </select>
         </div>
-        <button type='submit' className='rounded bg-indigo-400 hover:bg-indigo-800 text-white font-bold w-1/2 mx-auto block py-2'>
+        <button type='submit' className='rounded bg-gray-500 hover:bg-gray-800 text-white font-bold w-1/2 mx-auto block py-2'>
           {id !== undefined ? 'Editar' : 'Cadastrar'}
         </button>
       </form>

@@ -1,11 +1,10 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Categoria from '../../../models/Categoria'; // Importando o modelo de Categoria
+import Categoria from '../../../models/Categoria';
 import { atualizar, buscar, cadastrar } from '../../../services/Service';
 
-function FormularioCategoria() { // Alterando o nome da função para refletir o novo componente
-  const [categoria, setCategoria] = useState<Categoria>({} as Categoria); // Alterando "Tema" para "Categoria" para refletir o novo estado
-
+function FormularioCategoria() {
+  const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
   let navigate = useNavigate();
 
   const { id } = useParams<{ id: string }>();
@@ -33,7 +32,7 @@ function FormularioCategoria() { // Alterando o nome da função para refletir o
 
     if (id !== undefined) {
         try {
-            await atualizar(`/categorias`, categoria, setCategoria); // Removendo o último argumento
+            await atualizar(`/categorias`, categoria, setCategoria);
     
             alert('Categoria atualizada com sucesso')
             retornar()
@@ -48,18 +47,18 @@ function FormularioCategoria() { // Alterando o nome da função para refletir o
   }
 
   function retornar() {
-    navigate("/categorias") // Alterando "temas" para "categorias" para refletir a nova rota de retorno
+    navigate("/categorias")
   }
 
   return (
     <div className="container flex flex-col items-center justify-center mx-auto">
       <h1 className="text-4xl text-center my-8">
-        {id === undefined ? 'Cadastre uma nova categoria' : 'Editar categoria'} {/* Alterando "tema" para "categoria" */}
+        {id === undefined ? 'Cadastre uma nova categoria' : 'Editar categoria'} 
       </h1>
 
       <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Descrição da categoria</label> {/* Alterando "tema" para "categoria" */}
+          <label htmlFor="descricao">Descrição da categoria</label> 
           <input
             type="text"
             placeholder="Descrição"
@@ -70,7 +69,7 @@ function FormularioCategoria() { // Alterando o nome da função para refletir o
           />
         </div>
         <button
-          className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto block"
+          className="rounded text-slate-100 bg-gray-500 hover:bg-gray-800 w-1/2 py-2 mx-auto block"
           type="submit"
         >
           {id === undefined ? 'Cadastrar' : 'Editar'}

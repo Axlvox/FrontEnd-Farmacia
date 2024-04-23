@@ -4,10 +4,13 @@ import { buscar } from '../../../services/Service';
 import Produto from '../../../models/Produto';
 import CardProduto from '../cardProdutos.tsx/CardProdutos';
 
-function ListaProdutos() {
-  const [produtos, setProdutos] = useState<Produto[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+type Props = {
+  produtos: Produto[];
+};
 
+function ListaProdutos({ produtos: produtosProp }: Props) {
+  const [produtos, setProdutos] = useState<Produto[]>(produtosProp);
+  const [loading, setLoading] = useState<boolean>(true);
   let navigate = useNavigate();
 
   useEffect(() => {

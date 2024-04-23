@@ -1,14 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CardCategorias from '../cardCategorias/CardCategorias';
-import { buscar } from '../../../services/Service';
 import Categoria from '../../../models/Categoria';
+import { buscar } from '../../../services/Service';
 
-function ListaCategorias() {
-  const [categorias, setCategorias] = useState<Categoria[]>([]);
+type Props = {
+  categorias: Categoria[];
+};
+
+function ListaCategorias({ categorias: categoriasProp }: Props) {
+  const [categorias, setCategorias] = useState<Categoria[]>(categoriasProp);
 
   async function buscarCategorias() {
     try {
+      // Simula a busca de categorias
       const categoriasData = await buscar('/categorias', {});
+      // Atualiza o estado com os dados mockados
       setCategorias(categoriasData);
     } catch (error) {
       console.error('Erro ao buscar categorias:', error);

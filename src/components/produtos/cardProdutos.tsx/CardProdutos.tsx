@@ -8,27 +8,30 @@ interface CardProdutoProps {
 
 function CardProduto({ produto }: CardProdutoProps) {
   return (
-    <div className='border-slate-900 border flex flex-col rounded overflow-hidden justify-between'>
-      <div>
-        <div className="flex w-full bg-indigo-400 py-2 px-4 items-center gap-4">
-          <img src={produto.foto} className='h-12 rounded-full' alt="" />
-          <h3 className='text-lg font-bold text-center uppercase '>{produto.nome}</h3>
-        </div>
-        <div className='p-4 '>
-          <h4 className='text-lg font-semibold uppercase'>{produto.titulo}</h4>
-          <p>{produto.texto}</p>
-          <p>Tema: {produto.categoria?.descricao}</p>
-          <p>Data: {new Intl.DateTimeFormat(undefined, {
-                    dateStyle: 'full',
-                    timeStyle: 'medium',
-                  }).format(new Date(produto.data))}</p>
-        </div>
+    <div className='border flex flex-col rounded-2xl overflow-hidden justify-between bg-slate-200'>
+      <header className='py-2 px-6 bg-gray-500 text-white font-bold text-2xl'>
+        {produto.titulo}
+      </header>
+  
+      <img src={produto.foto} className='remedy h-12 rounded-full' alt="" />
+      
+      <div className='p-4 '>
+        <h4 className='text-lg font-semibold uppercase'></h4>
+        <p className='font-semibold'>{produto.texto}</p>
+        <img src={produto.imagemUrl} alt="" />
+        <p className='font-semibold'>Categoria: {produto.categoria.nome}</p>
+        <p>{produto.categoria.descricao}</p>
+        <p className='font-semibold'>Data:</p>
+        <p>{new Intl.DateTimeFormat(undefined, {
+          dateStyle: 'full',
+          timeStyle: 'medium',
+        }).format(new Date(produto.data))}</p>
       </div>
       <div className="flex">
-        <Link to={`/editarProduto/${produto.id}`} className='w-full text-white bg-indigo-400 hover:bg-indigo-800 flex items-center justify-center py-2'>
+        <Link to={`/editarProduto/${produto.id}`} className='w-full text-slate-100 bg-gray-600 hover:bg-gray-800 flex items-center justify-center py-2'>
           <button>Editar</button>
         </Link>
-        <Link to={`/deletarProduto/${produto.id}`} className='text-white bg-red-400 hover:bg-red-700 w-full flex items-center justify-center'>
+        <Link to={`/deletarProduto/${produto.id}`} className='text-slate-100 bg-red-400 hover:bg-red-700 w-full flex items-center justify-center'>
           <button>Deletar</button>
         </Link>
       </div>
