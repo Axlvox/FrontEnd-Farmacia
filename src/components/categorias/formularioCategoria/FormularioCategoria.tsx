@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Categoria from '../../../models/Categoria';
 import { atualizar, buscar, cadastrar } from '../../../services/Service';
 import { toastAlerta } from '../../../utils/toastAlerta';
+import ListaCategorias from '../listaCategorias/ListaCategorias';
+import categoriasMock from '../../mocks/categoriasMock';
 
 function FormularioCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
@@ -39,7 +41,8 @@ function FormularioCategoria() {
             retornar()
     
         } catch (error: any) {
-                toastAlerta('Erro ao cadastrado o Tema', 'erro')
+          //alert('Erro ao atualizaro')
+          toastAlerta('Não é possível editar no momento', 'erro')
         }
     }
     
@@ -52,14 +55,18 @@ function FormularioCategoria() {
   }
 
   return (
+    <>
+    <div className='border flex flex-col rounded-2xl overflow-hidden justify-between bg-slate-200'>
+
     <div className="container flex flex-col items-center justify-center mx-auto">
+      <header className='py-2 px-6 text-black font-bold text-2xl'>
       <h1 className="text-4xl text-center my-8">
         {id === undefined ? 'Cadastre uma nova categoria' : 'Editar categoria'} 
-      </h1>
+      </h1></header>
 
       <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovaCategoria}>
         <div className="flex flex-col gap-2">
-          <label htmlFor="descricao">Descrição da categoria</label> 
+          <label htmlFor="descricao" className='font-semibold'>Descrição da categoria</label> 
           <input
             type="text"
             placeholder="Descrição"
@@ -77,6 +84,9 @@ function FormularioCategoria() {
         </button>
       </form>
     </div>
+    </div>
+      <ListaCategorias categorias={categoriasMock} />
+      </>
   );
 }
 

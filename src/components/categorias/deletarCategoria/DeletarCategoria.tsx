@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import Categoria from '../../../models/Categoria';
 import { buscar, deletar } from '../../../services/Service';
+import { toastAlerta } from '../../../utils/toastAlerta';
 
 function DeletarCategoria() {
     const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
@@ -32,7 +33,8 @@ function DeletarCategoria() {
             retornar();
         } catch (error) {
             console.error('Erro ao apagar a Categoria:', error);
-            alert('Erro ao apagar a Categoria');
+            //alert('Erro ao apagar a Categoria');
+            toastAlerta('Não é possível cadastrar no momento', 'erro')
         }
     }
     

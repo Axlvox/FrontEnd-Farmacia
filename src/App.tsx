@@ -1,5 +1,4 @@
 import './App.css';
-
 import Navbar from './components/navbar/NavBar';
 import Footer from './components/footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -11,6 +10,7 @@ import ListaProdutos from './components/produtos/listaProdutos/ListaProdutos';
 import FormularioProduto from './components/produtos/formularioProduto/FormularioProduto';
 import DeletarProduto from './components/produtos/deletarProduto/DeletarProduto';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import remediosMock from './components/mocks/remediosMock';
 import categoriasMock from './components/mocks/categoriasMock';
@@ -19,8 +19,9 @@ import categoriasMock from './components/mocks/categoriasMock';
 function App() {
   return (
     <>
-      <ToastContainer />
+      
       <BrowserRouter>
+      <ToastContainer />
         <Navbar />
         <div className='min-h-[80vh]'>
           <Routes>

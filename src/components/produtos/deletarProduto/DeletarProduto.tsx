@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Produto from '../../../models/Produto'
 import { buscar, deletar } from '../../../services/Service'
+import { toastAlerta } from '../../../utils/toastAlerta'
 
 function DeletarProduto() {
   const [produto, setProduto] = useState<Produto>({} as Produto)
@@ -34,7 +35,8 @@ function DeletarProduto() {
       await deletar(`/produtos/${id}`, {})
       alert('Produto apagado com sucesso')
     } catch (error) {
-      alert('Erro ao apagar o Produto')
+      //alert('Erro ao apagar o Produto')
+      toastAlerta('Não é possível apagar no momento', 'erro')
     }
   }
   

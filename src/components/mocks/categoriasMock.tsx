@@ -6,8 +6,8 @@ const categoriasMock = [
   { id: 5, nome: "Antidepressivos", descricao: "Medicamentos para tratar depressão e outros transtornos mentais" },
   { id: 6, nome: "Antialérgicos", descricao: "Medicamentos para tratar reações alérgicas" },
   { id: 7, nome: "Estatinas", descricao: "Medicamentos para reduzir o colesterol" },
-  { id: 8, nome: "Anti-inflamatórios não esteroides (AINEs)", descricao: "Medicamentos para reduzir inflamações, dor e febre sem esteroides" },
-  { id: 9, nome: "Hormônios da tireoide", descricao: "Medicamentos para tratar distúrbios da tireoide" },
+  { id: 8, nome: "Anti-inflamatórios não esteroides", descricao: "Medicamentos para reduzir inflamações, dor e febre sem esteroides" },
+  { id: 9, nome: "Hormônios", descricao: "Medicamentos para tratar distúrbios da tireoide" },
 ];
 
 export default categoriasMock;

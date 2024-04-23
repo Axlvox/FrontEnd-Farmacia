@@ -6,6 +6,7 @@ import { buscar, atualizar, cadastrar } from '../../../services/Service';
 import categoriasMock from '../../mocks/categoriasMock';
 import { toastAlerta } from '../../../utils/toastAlerta';
 
+
 function FormularioProduto() {
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
@@ -87,7 +88,7 @@ function FormularioProduto() {
         alert('Produto cadastrado com sucesso');
         retornar();
       } catch (error: any) {
-        toastAlerta('Erro ao cadastrar a Postagem', 'erro');
+        toastAlerta('Não é possível cadastrar no momento', 'erro')
       }
     }
   }
