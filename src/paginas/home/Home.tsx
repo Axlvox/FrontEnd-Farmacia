@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import homeLogo from '../../assets/home.png'
+import homeLogo from '../../assets/home.png';
 import './Home.css';
 import ListaProdutos from '../../components/produtos/listaProdutos/ListaProdutos';
 import ModalProduto from '../../components/produtos/modalProduto/ModalProduto';
